@@ -1,0 +1,27 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">Listado de Clientes</span>
+                    <button routerLink="/list-customer" class="btn btn-secondary float-start">Volver</button>
+                    <table *ngIf="listLogs.length > 0" class="table table-striped mt-3">
+                        <thead>
+                            <tr>
+                                <th scope="col">Descripcion</th>
+                                <th scope="col">Fecha</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let logs of listLogs">
+                                <th>{{logs.description}}</th>
+                                <td>{{logs.created_at | date : 'dd-MM-yyyy, h:mm a' }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h5 *ngIf="listLogs.length == 0" style="text-align: center; margin-top: 16px;">No hay registros para mostar</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

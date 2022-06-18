@@ -1,0 +1,42 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">{{titulo | uppercase}}</span>
+                    <form action="" class="mt-3" [formGroup]="addressForm" (ngSubmit)="addAddress()">
+                        <div class="mb-3">
+                            <input formControlName="description" type="text" class="form-control form-control-lg" placeholder="Descripcion de la direccion">
+                            <div class="text-danger" *ngIf="addressForm.get('description')?.hasError('required') && addressForm.get('description')?.touched">
+                                <span>La direccion <strong>es obliagotrio</strong></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <select class="form-select" formControlName="state_id" id="orders" (change)="cities($event)">
+                            <option disabled selected>Seleccione</option>
+                            <option *ngFor="let state of listState; let i = index" [value]="state.id">
+                              {{state.name}}
+                            </option>
+                          </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <select class="form-select" formControlName="city_id" id="orders">
+                                <option disabled selected>Seleccione</option>
+                            <option *ngFor="let city of listCity; let i = index" [value]="city.id">
+                              {{city.name}}
+                            </option>
+                          </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <button routerLink="/list-customer" class="btn btn-secondary btn-lg float-start">Volver</button>
+                            <button type="submit" class="btn btn-success btn-lg float-end">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

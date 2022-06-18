@@ -1,0 +1,49 @@
+<div class="container mt-5">
+    <div class="row">
+        <div>
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">Listado de Clientes</span>
+                    <button routerLink="/list-logs" class="btn btn-secondary float-start">Bitacora</button>
+                    <button class="btn btn-success float-end" routerLink="/create-customer">Nuevo</button>
+                    <button class="btn btn-secondary float-end" mat-raised-button (click)="downloadCSV()">Csv</button>
+                    <button class="btn btn-secondary float-end" mat-raised-button (click)="downloadTxt()">Txt</button>
+                    <table *ngIf="listCustomer.length > 0" class="table table-striped mt-3">
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Nombres</th>
+                                <th scope="col">Apellidos</th>
+                                <th scope="col">Fecha de nacimiento</th>
+                                <th scope="col">Telefono</th>
+                                <th scope="col">DUI</th>
+                                <th scope="col">Pasaporte</th>
+                                <th scope="col">ISSS</th>
+                                <th scope="col">AFP</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let customer of listCustomer">
+                                <th>{{customer.first_name}}</th>
+                                <td>{{customer.last_name}}</td>
+                                <td>{{customer.birthday_date | date: 'dd-MM-yyyy' }}</td>
+                                <td>{{customer.phone_number}}</td>
+                                <td>{{customer.dui}}</td>
+                                <td>{{customer.passport}}</td>
+                                <td>{{customer.isss}}</td>
+                                <td>{{customer.afp}}</td>
+                                <td>
+                                    <i [routerLink]="['/list-address',customer.id]" class="fa-solid fa-eye text-success"></i>
+                                    <i [routerLink]="['/edit-customer',customer.id]" class="fa-solid fa-pen-to-square text-primary"></i>
+                                    <i (click)="deleteCustomer(customer.id)" class="fa-solid fa-trash text-danger"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h5 *ngIf="listCustomer.length == 0" style="text-align: center; margin-top: 16px;">No hay productos para mostar</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

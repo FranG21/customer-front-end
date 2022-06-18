@@ -1,0 +1,65 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">{{titulo | uppercase}}</span>
+                    <form action="" class="mt-3" [formGroup]="customerForm" (ngSubmit)="editCustomer()">
+                        <div class="mb-3">
+                            <input formControlName="first_name" type="text" class="form-control form-control-lg" placeholder="Nombre">
+                            <div class="text-danger" *ngIf="customerForm.get('first_name')?.hasError('required') && customerForm.get('first_name')?.touched">
+                                <span>El nombre del Cliente <strong>es obliagotrio</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input formControlName="last_name" type="text" class="form-control form-control-lg" placeholder="Apellidos">
+                            <div class="text-danger" *ngIf="customerForm.get('last_name')?.hasError('required') && customerForm.get('last_name')?.touched">
+                                <span>Los apellidos del Cliente <strong>es obliagotrio</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input formControlName="birthday_date" type="date" class="form-control form-control-lg">
+                            <div class="text-danger" *ngIf="customerForm.get('birthday_date')?.hasError('required') && customerForm.get('birthday_date')?.touched">
+                                <span>La birthday_date<strong>es obliagotrio</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input formControlName="phone_number" type="text" class="form-control form-control-lg" placeholder="Precio">
+                            <div class="text-danger" *ngIf="customerForm.get('phone_number')?.hasError('required') && customerForm.get('phone_number')?.touched">
+                                <span>El numero de telefono <strong>es obliagotrio</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input formControlName="dui" type="text" class="form-control form-control-lg" placeholder="Precio">
+                            <div class="text-danger" *ngIf="customerForm.get('dui')?.hasError('required') && customerForm.get('dui')?.touched">
+                                <span>El numero de DUI <strong>es obliagotrio</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input formControlName="passport" type="text" class="form-control form-control-lg" placeholder="Precio">
+                            <div class="text-danger" *ngIf="customerForm.get('passpot')?.hasError('required') && customerForm.get('passpot')?.touched">
+                                <span>El numero del pasaporte <strong>es obliagotrio</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input formControlName="isss" type="text" class="form-control form-control-lg" placeholder="Precio">
+                            <div class="text-danger" *ngIf="customerForm.get('isss')?.hasError('required') && customerForm.get('isss')?.touched">
+                                <span>El numero de ISSS <strong>es obliagotrio</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input formControlName="afp" type="text" class="form-control form-control-lg" placeholder="Precio">
+                            <div class="text-danger" *ngIf="customerForm.get('afp')?.hasError('required') && customerForm.get('afp')?.touched">
+                                <span>El numero de APP <strong>es obliagotrio</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <button routerLink="/list-customer" class="btn btn-secondary btn-lg float-start">Volver</button>
+                            <button type="submit" class="btn btn-success btn-lg float-end">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
