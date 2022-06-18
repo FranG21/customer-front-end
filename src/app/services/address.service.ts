@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Address } from '../models/address';
@@ -15,8 +15,11 @@ export class AddressService {
     return this.http.post(this.url, address);
   }
 
-  getAddresses(id: string): Observable<any> {
-    return this.http.get(this.url + 'customer/' + id);
+  getAddresses(id: string, htppHeaders: HttpHeaders): Observable<any> {
+    return this.http.get(this.url + 'customer/' + id, {
+      headers: htppHeaders,
+      observe: 'response',
+    });
   }
 
   getAddress(id: string): Observable<any> {

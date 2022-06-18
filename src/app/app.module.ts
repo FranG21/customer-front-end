@@ -14,6 +14,7 @@ import { ListAddressComponent } from './components/list-address/list-address.com
 import { CreateAddressComponent } from './components/create-address/create-address.component';
 import { EditAddressComponent } from './components/edit-address/edit-address.component';
 import { ListLogsComponent } from './components/list-logs/list-logs.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ListLogsComponent } from './components/list-logs/list-logs.component';
     CreateAddressComponent,
     EditAddressComponent,
     ListLogsComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -27,7 +28,11 @@ export class ListAddressComponent implements OnInit {
   }
 
   addresses() {
-    this._addressService.getAddresses(this.id).subscribe(
+    let httpHeaders: HttpHeaders = new HttpHeaders();
+    const token = sessionStorage.getItem('token');
+    httpHeaders = httpHeaders.append('Authorization', 'Bearer' + token);
+
+    this._addressService.getAddresses(this.id, httpHeaders).subscribe(
       (data) => {
         this.listAddress = data.data;
       },
