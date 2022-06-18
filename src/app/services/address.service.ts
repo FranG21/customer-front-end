@@ -15,11 +15,8 @@ export class AddressService {
     return this.http.post(this.url, address);
   }
 
-  getAddresses(id: string, htppHeaders: HttpHeaders): Observable<any> {
-    return this.http.get(this.url + 'customer/' + id, {
-      headers: htppHeaders,
-      observe: 'response',
-    });
+  getAddresses(id: string): Observable<any> {
+    return this.http.get(this.url + 'customer/' + id);
   }
 
   getAddress(id: string): Observable<any> {

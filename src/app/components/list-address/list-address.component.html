@@ -5,6 +5,7 @@
                 <div class="card-body text-center">
                     <span class="titulo">Listado de Direcciones</span>
                     <button class="btn btn-success float-end" [routerLink]="['/create-address',id]">Nuevo</button>
+                    <button routerLink="/list-address" class="btn btn-secondary float-start">Volver</button>
                     <table *ngIf="listAddress.length > 0" class="table table-striped mt-3">
                         <thead>
                             <tr>
@@ -16,6 +17,7 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let address of listAddress">
+
                                 <th>{{address.description}}</th>
                                 <td>{{address.city.name}}</td>
                                 <td>{{address.city.state.name}}</td>
@@ -26,7 +28,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <h5 *ngIf="listAddress.length == 0" style="text-align: center; margin-top: 16px;">No hay productos para mostar</h5>
+                    <h5 *ngIf="listAddress.length == 0" style="text-align: center; margin-top: 16px;">No hay registros para mostar</h5>
                 </div>
             </div>
         </div>

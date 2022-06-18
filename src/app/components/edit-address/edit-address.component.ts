@@ -96,4 +96,8 @@ export class EditAddressComponent implements OnInit {
       });
     }
   }
+
+  exit() {
+    this.router.navigate(['/list-address', this.customer_id]);
+  }
 }

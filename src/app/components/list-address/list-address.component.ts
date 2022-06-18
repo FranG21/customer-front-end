@@ -32,7 +32,7 @@ export class ListAddressComponent implements OnInit {
     const token = sessionStorage.getItem('token');
     httpHeaders = httpHeaders.append('Authorization', 'Bearer' + token);
 
-    this._addressService.getAddresses(this.id, httpHeaders).subscribe(
+    this._addressService.getAddresses(this.id).subscribe(
       (data) => {
         this.listAddress = data.data;
       },

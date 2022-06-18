@@ -87,6 +87,7 @@ export class CreateCustomerComponent implements OnInit {
 
         this._addressService.createAddress(address).subscribe(
           (data) => {
+            console.log(data);
             this.toastr.success(
               'El cliente fue registado con exito',
               'Cliente'

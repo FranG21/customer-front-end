@@ -7,11 +7,9 @@ import { EditCustomerComponent } from './components/edit-customer/edit-customer.
 import { ListAddressComponent } from './components/list-address/list-address.component';
 import { ListCustomerComponent } from './components/list-customer/list-customer.component';
 import { ListLogsComponent } from './components/list-logs/list-logs.component';
-import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'list-customer', component: ListCustomerComponent },
+  { path: '', component: ListCustomerComponent },
   { path: 'create-customer', component: CreateCustomerComponent },
   { path: 'edit-customer/:id', component: EditCustomerComponent },
   { path: 'list-address/:customer_id', component: ListAddressComponent },
